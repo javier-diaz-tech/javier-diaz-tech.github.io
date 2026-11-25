@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Javier Díaz | Arquitectura de software, datos e IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E8EDF2; --surface:#F6F8FA; --ink:#10222F; --muted:#4A5B68;
+  --line:#B9C4CE; --accent:#2850D8; --accent-ink:#FFFFFF; --signal:#C77A12;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1A24; --surface:#152633; --ink:#E6EDF3; --muted:#9DB0BF;
+    --line:#2B4153; --accent:#7C9BFF; --accent-ink:#0E1A24; --signal:#E8A33D;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1A24; --surface:#152633; --ink:#E6EDF3; --muted:#9DB0BF;
+  --line:#2B4153; --accent:#7C9BFF; --accent-ink:#0E1A24; --signal:#E8A33D;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Source Sans 3",system-ui,sans-serif}
+main{max-width:46rem;margin:0 auto;padding:3rem 1.25rem 4rem}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+h1{font-size:clamp(2.1rem,7vw,3.4rem);letter-spacing:-.02em;max-width:16ch}
+.name{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:1.35rem;margin:0 0 1.25rem;color:var(--accent)}
+h2{font-size:1.5rem;margin-bottom:1.25rem}
+h3{font-size:1.2rem;margin-bottom:.35rem}
+p{margin:0 0 1rem;max-width:62ch}
+section{margin-top:3.5rem}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.lead{font-size:1.2rem;color:var(--muted);margin-top:1.25rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:6px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent)}
+.flow{list-style:none;margin:2rem 0 0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.flow li{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);padding:.6rem .9rem;border-radius:4px;font-weight:600;position:relative}
+.flow li small{display:block;font-weight:400;color:var(--muted);font-size:.9rem}
+.flow li:not(:last-child)::after{content:"↓";position:absolute;left:1rem;bottom:-1.35rem;color:var(--signal);font-weight:700}
+.flow li:not(:last-child){margin-bottom:.9rem}
+@media (min-width:44rem){
+  .flow{flex-direction:row;align-items:stretch;gap:1.1rem}
+  .flow li{flex:1}
+  .flow li:not(:last-child){margin-bottom:0}
+  .flow li:not(:last-child)::after{content:"→";left:auto;right:-1.05rem;bottom:auto;top:50%;transform:translateY(-50%)}
+}
+.project{border-top:1px solid var(--line);padding:1.25rem 0}
+.project:last-child{border-bottom:1px solid var(--line)}
+.stack{color:var(--muted);font-size:.95rem;margin-bottom:.6rem}
+.skills{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0;list-style:none}
+.skills li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.25rem .8rem;font-size:.95rem}
+footer{margin-top:4rem;color:var(--muted);font-size:.95rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="name">Javier Díaz</p>
+    <h1>Arquitectura y desarrollo de software que llega a producción, con IA y datos</h1>
+    <p class="lead">Soy Javier, Ingeniero en Sistemas con experiencia en desarrollo de
+  software empresarial y soluciones para el sector bancario. He liderado
+  equipos técnicos y diseñado soluciones e integraciones con .NET y Azure.
+  Actualmente profundizo mis conocimientos en arquitectura de software
+  y desarrollo proyectos relacionados con inteligencia artificial y datos.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/javier-diaz-tech">Ver mi GitHub</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/javiec">Escribirme en LinkedIn</a>
+    </div>
+  </header>
+
+  <section aria-labelledby="proyectos">
+    <h2 id="proyectos">Proyectos</h2>
+
+    <article class="project">
+      <h3>Agente Conversacional con IA y RAG usando Semantic Kernel + Ollama (.NET 10)</h3>
+      <p class="stack">Llama 3, Ollama, RAG, Semantic Kernel, ASP.NET Core 10, Razor</p>
+      <p>Monolito modular con una vista en Razor que se conecta a la aplicación y desde donde se consulta al agente y se suben documentos. El modelo Llama 3 corre localmente con Ollama. El agente responde de dos maneras: solo con el modelo o con RAG, usando los documentos cargados como contexto. Los documentos se guardan en memoria y Semantic Kernel crea el agente y el flujo de RAG. Sirve para comparar la calidad de las respuestas y ver cuándo el contexto propio marca la diferencia.</p>
+      <p><a class="btn primary" href="https://youtu.be/c_vG2MsYkoI" target="_blank" rel="noopener">Ver el video de demostración</a></p>
+      <a href="https://github.com/javier-diaz-tech/Conversational-AI-Agent-RAG">Ver el código en GitHub</a>
+    </article>
+
+    <article class="project">
+      <h3>RutaSegura: geolocalización bajo demanda</h3>
+      <p class="stack">AWS Lambda, API Gateway, DynamoDB, .NET MAUI, Blazor, Firebase Hosting</p>
+      <p>Sistema que obtiene la ubicación solo cuando se solicita. El backend es serverless: funciones AWS Lambda expuestas por API Gateway, con las coordenadas guardadas en DynamoDB. Incluye una app móvil en .NET MAUI en prueba cerrada en Google Play Console y una web en Blazor publicada en Firebase Hosting.</p>
+      <p><a class="btn primary" href="https://youtube.com/shorts/sjHSd40jtlM" target="_blank" rel="noopener">Ver el video de demostración</a></p>
+      <p><a class="btn ghost" href="mailto:javier.diaz.tech@gmail.com?subject=Acceso%20de%20prueba%20a%20RutaSegura">Probar la app (acceso por invitación)</a></p>
+      <p class="stack">Escríbeme por correo y te agrego como tester.</p>
+      <a href="https://github.com/javier-diaz-tech/AppSeguridad">Ver la arquitectura en GitHub</a>
+    </article>
+
+    <article class="project">
+      <h3>Plantilla Clean Architecture con CQRS en .NET</h3>
+      <p class="stack">.NET 10, C#, Clean Architecture, CQRS, MediatR, Entity Framework Core, SQL Server, Swagger, OpenTelemetry, Docker Compose</p>
+      <p>Plantilla base para construir APIs empresariales en .NET 10 con Clean Architecture, CQRS con MediatR y Entity Framework Core, organizada en cuatro proyectos: dominio, aplicación, infraestructura y presentación. Incluye SQL Server con migraciones iniciales, manejo centralizado de excepciones, queries y comandos de referencia, Swagger para pruebas interactivas y OpenTelemetry para observabilidad. Con Docker Compose levanta la API y la base de datos con un solo comando. El código se publica con fines educativos y de demostración: su uso requiere autorización del autor.</p>
+      <a href="https://github.com/javier-diaz-tech/clean-architecture-cqrs-template-dotnet">Ver el código en GitHub</a>
+    </article>
+  </section>
+
+  <section aria-labelledby="caso">
+    <h2 id="caso">Caso de estudio: banca por internet</h2>
+    <p>Arquitectura propuesta para un sistema de banca por internet con consulta de movimientos y transferencias, integrado a un core bancario legado. Documentada con diagramas C4 y nueve decisiones de arquitectura, cada una con sus alternativas y consecuencias.</p>
+    <ul class="skills" aria-label="Decisiones principales">
+      <li>API Gateway y BFF por canal</li>
+      <li>Capa de aislamiento del core</li>
+      <li>Idempotencia y conciliación</li>
+      <li>Kafka con Avro</li>
+      <li>Auditoría con outbox</li>
+      <li>Kubernetes y recuperación ante desastres</li>
+    </ul>
+    <p style="margin-top:1rem"><a class="btn ghost" href="https://github.com/javier-diaz-tech/ArquitecturaSoluciones" target="_blank" rel="noopener">Ver el caso de estudio en GitHub</a></p>
+  </section>
+
+  <section aria-labelledby="trayectoria">
+  <h2 id="trayectoria">Experiencia y enfoque profesional</h2>
+
+  <p>
+    Ingeniero en Sistemas con experiencia en desarrollo de software
+    empresarial y soluciones para el sector bancario. He liderado
+    equipos multidisciplinarios de hasta 8 integrantes, promoviendo
+    la colaboración entre áreas técnicas y funcionales mediante
+    metodologías ágiles y prácticas de Scrum.
+  </p>
+
+  <p>
+    Durante mi trayectoria he diseñado y propuesto soluciones técnicas
+    para proyectos de canales digitales, integraciones bancarias y
+    modernización de aplicaciones, considerando aspectos de
+    escalabilidad, seguridad, integración y mantenibilidad.
+  </p>
+
+  <p>
+    He participado en iniciativas como un sistema de turnos con
+    agendamiento mediante códigos QR, funcionalidades bancarias
+    a través de WhatsApp y servicios de notificaciones transaccionales
+    por correo electrónico, push y SMS. También trabajé en un
+    chatbot basado en intenciones del cliente.
+  </p>
+
+  <p>
+    Cuento con la certificación Scrum Master y Microsoft Azure AI
+    Engineer Associate. Actualmente curso estudios de Arquitectura
+    de Sistemas de Software para profundizar mis conocimientos
+    en diseño y arquitectura de soluciones empresariales.
+  </p>
+
+  <ul class="skills" aria-label="Tecnologías y conocimientos">
+    <li>.NET y C#</li>
+    <li>Microservicios</li>
+    <li>Azure Functions</li>
+    <li>API Management</li>
+    <li>Azure SQL</li>
+    <li>Azure DevOps</li>
+    <li>SSIS y SQL</li>
+    <li>Llama 3 y Ollama</li>
+    <li>Semantic Kernel</li>
+    <li>RAG</li>
+    <li>.NET MAUI</li>
+    <li>Blazor</li>
+    <li>AWS Lambda</li>
+    <li>DynamoDB</li>
+    <li>CQRS y DDD</li>
+    <li>Entity Framework</li>
+    <li>OpenTelemetry</li>
+    <li>OAuth 2.0</li>
+  </ul>
+</section>
+
+  <section aria-labelledby="contacto">
+    <h2 id="contacto">Contacto</h2>
+   <p>
+  Estoy abierto a oportunidades profesionales en desarrollo de software,
+  liderazgo técnico, diseño de soluciones e inteligencia artificial,
+  donde pueda aportar mi experiencia en proyectos empresariales y
+  continuar creciendo en arquitectura de software.
+</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:javier.diaz.tech@gmail.com">Correo</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/javiec">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/javier-diaz-tech">GitHub</a>
+    </div>
+  </section>
+
+  <footer>Javier Díaz, Ecuador. Disponible para trabajo remoto.</footer>
+</main>
+</body>
+</html>
