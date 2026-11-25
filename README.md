@@ -4,7 +4,7 @@
 Portafolio profesional de **Javier Rolando Díaz González**, Ingeniero en Sistemas, Especialista de Software y Tech Lead.
 
 <p align="center">
-  <a href="https://javier-diaz-tech.github.io/javier.diaz.tech.github.io/">
+  <a href="https://javier-diaz-tech.github.io/">
     <strong>🌐 Visitar mi portafolio profesional</strong>
   </a>
 </p>
